@@ -1,0 +1,18 @@
+
+
+google_form.addressform:
+  path: '/googleform/address'
+  defaults:
+    _form:  '\Drupal\googleform\Form\GoogleForm'
+    _title: 'Address form'
+  requirements:
+    _permission: 'access content'
+
+
+googleform.results:
+  path: '/googleform/results/{address}'
+  defaults:
+    _title: 'Results'
+    _controller: '\Drupal\googleform\Controller\GoogleFormController::build'
+  requirements:
+    _permission: 'access content'

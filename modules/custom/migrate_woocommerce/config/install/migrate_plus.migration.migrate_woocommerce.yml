@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - migrate_woocommerce    
+id: migrate_woocommerce
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Woocommerce data'
+source:
+  plugin: csv
+  path: 'modules/custom/migrate_woocommerce/assets/csv/products.csv'
+  header_row_count: 1
+  keys:
+    - ID
+  enclosure: '"'
+  column_names:
+    0:
+      ID: 'Unique Id'
+    1:
+      Type: 'Type'
+    2:
+      SKU: 'SKU'
+    3:
+      Name: 'Product Name'
+    4:
+      Images: 'Images'
+  
+process:
+  field_type:
+    plugin: default_value
+    default_value: simple  
+  field_sku: SKU  
+  title: Name
+  field_image/target_id:
+    -
+      plugin: migration
+      migration: woocommerce_images
+      source: Images
+destination:
+  plugin: 'entity:node'
+  default_bundle: product

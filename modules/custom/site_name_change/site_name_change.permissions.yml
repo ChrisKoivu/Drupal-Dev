@@ -1,0 +1,4 @@
+administer site_name_change configuration:
+  title: 'Administer site_name_change configuration'
+  description: 'Optional description.'
+  restrict access: true

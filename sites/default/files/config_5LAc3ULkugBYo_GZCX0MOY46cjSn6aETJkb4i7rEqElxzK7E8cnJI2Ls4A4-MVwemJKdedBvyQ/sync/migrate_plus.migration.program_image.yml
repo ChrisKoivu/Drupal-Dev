@@ -1,0 +1,58 @@
+uuid: d08199d2-e0c5-4c86-96d1-7461df9a84e7
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - c11n_migrate
+_core:
+  default_config_hash: QTGKFc8B3yAvj19up4ZVrW85BLoJzGVDDH0KT_hr2Do
+id: program_image
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'academic program'
+  - file
+  - image
+migration_group: c11n
+label: 'Image associated to academic programs.'
+source:
+  plugin: csv
+  path: 'public://import/program/program.data.csv'
+  header_row_count: 1
+  keys:
+    - 'Image file'
+  fields:
+    'Image file': 'Name of the image file associated with the program.'
+  constants:
+    file_source_uri: 'public://import/program'
+    file_dest_uri: 'public://program/image'
+process:
+  file_source:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/file_source_uri
+        - 'Image file'
+    -
+      plugin: urlencode
+  file_dest:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/file_dest_uri
+        - 'Image file'
+    -
+      plugin: urlencode
+  filename: 'Image file'
+  uri:
+    plugin: file_copy
+    source:
+      - '@file_source'
+      - '@file_dest'
+destination:
+  plugin: 'entity:file'
+migration_dependencies: null

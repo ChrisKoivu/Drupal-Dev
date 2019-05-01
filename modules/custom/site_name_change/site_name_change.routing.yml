@@ -1,0 +1,17 @@
+site_name_change.example:
+  path: '/site-name-change/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\site_name_change\Controller\SiteNameChangeController::build'
+  requirements:
+    _permission: 'access content'
+
+site_name_change.settings_form:
+  path: '/admin/config/system/site-name-change'
+  defaults:
+    _title: 'site_name_change settings'
+    _form: 'Drupal\site_name_change\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site_name_change configuration'
+
+

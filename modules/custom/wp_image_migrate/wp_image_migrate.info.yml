@@ -1,0 +1,9 @@
+name: WP Image Migrate
+type: module
+description: Process plugin for wordpress woocommerce images
+core: 8.x
+package: Migration
+dependencies:
+    - migrate_source_csv
+    - migrate_plus
+    - migrate_tools

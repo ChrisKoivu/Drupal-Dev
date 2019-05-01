@@ -1,0 +1,5 @@
+name: Site Name Change
+type: module
+description: This module changes the name of the website in configuration
+package: Custom
+core: 8.x

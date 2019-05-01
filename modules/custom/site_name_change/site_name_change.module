@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Site Name Change module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+
+
+ /**
+  * implements hook_mail
+  */
+
+  function site_name_change_mail($key, &$message, $params){
+    $data['user'] = $params['account'];
+    $options['langcode'] = $message['langcode'];
+    $variables = array();
+    user_mail_tokens($variables, $data, $options);
+    switch ($key) {
+      case 'notice':
+  
+       
+        $message['subject'] = t('Notification from @site', $variables, $options);
+        $message['body'][] = t("Dear @username\n\nThe site name has changed.", $variables, $options);
+       
+        
+        break;
+    }
+  }

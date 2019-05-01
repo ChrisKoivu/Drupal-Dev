@@ -1,0 +1,11 @@
+services:
+  site_name_change.event_subscriber:
+    class: Drupal\site_name_change\EventSubscriber\SiteNameChangeSubscriber
+    arguments: ['@messenger']
+    tags:
+      - { name: event_subscriber }
+
+  
+  site_name_change.logger.channel.site_name_change:
+    parent: logger.channel_base
+    arguments: ['site_name_change']

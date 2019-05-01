@@ -1,0 +1,8 @@
+<h1>Standardized Addresses</h1>
+<ul>
+
+  
+    {% for address in gc_results.results %}
+        <li>{{ address.formatted_address }}</li>
+    {% endfor %} 
+</ul>

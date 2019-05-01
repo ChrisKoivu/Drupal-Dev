@@ -1,0 +1,11 @@
+name: Woocommerce Migrate
+type: module
+description: Migrate products from wordpress
+core: 8.x
+package: Migration
+dependencies:
+  - migrate
+  - migrate_plus
+  - migrate_source_csv
+  - migrate_tools
+  - node
