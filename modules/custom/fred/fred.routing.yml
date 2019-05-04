@@ -1,0 +1,52 @@
+fred.hello:
+  path: '/fred/hello'
+  defaults:
+    _controller: '\Drupal\fred\Controller\FredController::hello'
+    _title: 'Fred says hello'
+  requirements:
+    _permission: 'access content'
+
+
+fred.test:
+  path: '/fred/test'
+  defaults:
+    _controller: '\Drupal\fred\Controller\FredController::content'
+    _title: 'Fred Template Test'
+  requirements:
+    _permission: 'access content'
+
+
+fred.article:
+ path: '/fred/{id}'
+ defaults:
+   _title: 'Show article'
+   _controller: '\Drupal\fred\Controller\FredController::content'
+ requirements:
+   _permission: 'view content'
+   id: \d+
+
+
+fred.articles:
+  path: '/fred/articles'
+  defaults:
+    _controller: '\Drupal\fred\Controller\FredController::get_articles'
+    _title: 'Fred is an author'
+  requirements:
+    _permission: 'access content'
+
+
+fred.fred_form:
+  path: '/fred/fred'
+  defaults:
+    _form:  '\Drupal\fred\Form\FredForm'
+    _title: 'Lets configure Fred!'
+  requirements:
+    _permission: 'access content'
+
+fred.settings:
+  path: '/fred/configure'
+  defaults:
+    _form: '\Drupal\fred\Form\FredConfigForm'
+    _title: 'Mess Up Some Settings'
+  requirements:
+    _permission: 'administer site configuration'

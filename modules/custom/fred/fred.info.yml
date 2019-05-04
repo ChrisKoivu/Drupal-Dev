@@ -1,0 +1,10 @@
+name: 'Fred module'
+type: module
+description: 'An example module created for fun.'
+package: 'custom modules'
+core: 8.x
+dependencies:
+  - drupal:node
+ 
+  
+  

@@ -1,0 +1,24 @@
+# This file links a menu link with route_name.
+#
+# 'title' key is only key required.
+#
+# 'description' is  is shown either as a tooltip on the item or in the admin UI
+# as the description of the option on the page/
+#
+# 'weight' is used to order the items (higher weights get placed towards the
+# end of the menu among items on the same level).
+#
+# 'route_name' is used to link menu link to corresponding route.
+#
+# 'parent' is used to put item into the menu hierarchy by referring to the
+# parent menu link name.
+#
+fred.settings:
+  title: 'Site Settings'
+  description: 'Lets do some damage!'
+  route_name: fred.settings
+
+fred.fred_form:  
+  title: 'Site Configuration'
+  description: 'Set site configuration values'
+  route_name: fred.fred_form

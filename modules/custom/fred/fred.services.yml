@@ -1,0 +1,5 @@
+services:
+  fred.articles:
+    class: Drupal\fred\FredService
+    arguments: ['@entity_type.manager']
+  
